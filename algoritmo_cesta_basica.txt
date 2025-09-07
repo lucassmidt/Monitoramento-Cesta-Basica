@@ -1,0 +1,48 @@
+Algoritmo "VariacaoCestaBasica"
+
+Var
+   nome: vetor [1..3] de caractere
+   situacao: vetor [1..3] de caractere
+   preco_anterior: vetor [1..3] de real
+   preco_atual: vetor [1..3] de real
+   variacao: vetor [1..3] de real
+   i: inteiro
+
+Inicio
+// Leitura dos dados e processamento
+ Para i de 1 até 3 faça
+        Escreva ("Digite o nome do produto ", i, ": ")
+        Leia (nome[i])
+        Escreva ("Digite o preço anterior do produto ", nome[i], ": ")
+        Leia (preco_anterior[i])
+        Escreva ("Digite o preço atual do produto ", nome[i], ": ")
+        Leia (preco_atual[i])
+        
+// Cálculo da variação percentual
+variacao[i] <- ((preco_atual[i] - preco_anterior[i]) / preco_anterior[i]) * 100
+ 
+// Classificação da situação
+        Se variacao[i] > 0 Então
+            situacao[i] <- "AUMENTO"
+        Senão
+            Se variacao[i] < 0 Então
+            situacao[i] <- "QUEDA"
+            Senão
+            situacao[i] <- "ESTÁVEL"
+            FimSe
+        FimSe
+ FimPara
+
+// Exibição do resumo final
+    Escreval
+    Escreval ("RESUMO FINAL")
+    Escreval
+    Para i de 1 até 3 faça
+        Escreval ("Produto: ", nome[i])
+        Escreval ("Preço anterior: R$ ", preco_anterior[i]:2)
+        Escreval ("Preço atual: R$ ", preco_atual[i]:2)
+        Escreval ("Variação percentual: ", variacao[i]:2, "%")
+        Escreval ("Situação: ", situacao[i])
+        Escreval
+    FimPara
+Fimalgoritmo
